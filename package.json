@@ -9,11 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@markdoc/markdoc": "^0.1.12",
+    "@markdoc/next.js": "^0.1.10",
+    "gray-matter": "^4.0.3",
     "next": "12.3.1",
+    "prismjs": "^1.29.0",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-copy-to-clipboard": "^5.1.0",
+    "react-dom": "18.2.0",
+    "styled-components": "^5.3.6"
   },
   "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.24.0",
     "eslint-config-next": "12.3.1"
   }
