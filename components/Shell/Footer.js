@@ -1,19 +1,27 @@
 import styled from 'styled-components';
+import { useRouter } from 'next/router';
 
-export const Footer = ({children}) => {
+export const Footer = () => {
+  const router = useRouter()
+  const isLanding = router.pathname === '/';
   return (
-    <Foot>
-      <Item>©2022. DongwonKang All rights reserved.</Item>
-      {/* <Item style={{marginLeft: "auto"}}>toggle</Item> */}
-    </Foot>
+    <Wrap isLanding={isLanding}>
+      <Foot>
+        <Item>©2022. DongwonKang All rights reserved.</Item>
+        {/* <Item style={{marginLeft: "auto"}}>toggle</Item> */}
+      </Foot>
+    </Wrap>
   )
 }
 
-const Foot = styled.footer`
-  position: relative;
-  display: flex;
-  z-index: 100;
+const Wrap = styled.footer(props =>`
+  height: 80px;
   width: 100%;
+  position: ${props.isLanding? 'fixed': 'relative'};
+  bottom: ${props.isLanding? 0: null};
+`)
+const Foot = styled.footer`
+  display: flex;
   box-sizing: border-box;
   color: var(--dark);
   padding: 1rem 0;

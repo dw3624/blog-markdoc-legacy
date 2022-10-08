@@ -5,23 +5,29 @@ import { theme } from './../../styles/theme';
 
 export const TopNav = () => {
   return (
-    <Nav>
-      <Link href='/'><Logo>logo</Logo></Link>
-      <Section>
-        <Link href='/docs'><MenuLink>Docs</MenuLink></Link>
-        <MenuLink href='https://github.com/dw3624'>GitHub</MenuLink>
-      </Section>
-    </Nav>
+    <Header>
+      <Nav>
+        <Link href='/'><Logo>logo</Logo></Link>
+        <Section>
+          <Link href='/docs'><MenuLink>Docs</MenuLink></Link>
+          <MenuLink href='https://github.com/dw3624'>GitHub</MenuLink>
+        </Section>
+      </Nav>
+    </Header>
   )
 }
 
+const Header = styled.header`
+  height: 70px;
+  display: block;
+`
 const Nav = styled.nav`
-  box-sizing: border-box;
-  z-index: 100;
+  /* box-sizing: border-box; */
+  /* z-index: 100; */
   display: flex;
   justify-content: space-between;
   align-items: center;
-  gap: 1rem;
+  /* gap: 1rem; */
   padding: 1rem 2.5rem;
 `
 const Logo = styled.a`

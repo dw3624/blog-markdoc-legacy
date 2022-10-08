@@ -18,7 +18,6 @@ const Docs = ({ sortedItems }) => {
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
 
-
   return (
     <>
       <ArticleIndex sortedItems={sortedItems.slice(offset, offset + limit)}></ArticleIndex>

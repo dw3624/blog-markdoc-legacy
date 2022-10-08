@@ -71,23 +71,21 @@ function MyApp({ Component, pageProps }) {
     ? collectHeadings(pageProps.markdoc.content)
     : [];
 
+  const isLanding = router.pathname === '/';
+  const isList = router.asPath.endsWith('/docs');
   const isDocs = router.asPath.startsWith('/docs/');
-  const isList = router.asPath.endsWith('/docs')
-  const isLandingPage = router.pathname === '/';
 
   return (
     <>
       <Wrap>
-        <Header><TopNav/></Header>
-        <Page isList={isList}>
+        <TopNav/>
+        <WrapPage>
           {isList? (
-            <>
-              <SideLeft/>
-              <DocList>
+            <WrapDoc>
+              <Doc>
                 <Component {...pageProps} />
-              </DocList>
-              <SideRight/>
-            </>
+              </Doc>
+            </WrapDoc>
           ): (
             <WrapMain>
               <Main>
@@ -105,9 +103,11 @@ function MyApp({ Component, pageProps }) {
               {isDocs && toc? <ToC><TableOfContents toc={toc} /></ToC>: null}
             </WrapMain>
           )}
-        </Page>
-        <FooterWrap><Footer/></FooterWrap>
+        </WrapPage>
       </Wrap>
+      <Footer/>
+      {/* <FooterWrap> */}
+      {/* </FooterWrap> */}
       <style jsx global>{`
         body {
           margin: 0px;
@@ -123,61 +123,27 @@ function MyApp({ Component, pageProps }) {
 export default MyApp
 
 const Wrap = styled.div`
-  height: 100%;
-  display: grid;
-  overflow-x: hidden;
-  grid-template: auto 1fr 80px / minmax(0, 1fr);
-  grid-template-areas:
-    "header"
-    "page"
-    "footer";
+  height: auto;
 `
-const Header = styled.div`
-  z-index: 1;
-  grid-area: header;
-  position: sticky;
-  top: 0;
-  border-bottom: 1px solid #000;
-`
-const Page = styled.div`
-  grid-area: page;
-  display: flex;
-  justify-content: center;
-  flex-grow: 1;
-  padding: 32px 16px;
-`
-const SideLeft = styled.div`
-  flex: 1;
-  @media screen and (max-width: 700px) {
-    flex: 0;
-  }
-`
-const SideRight = styled.div`
-  flex: 1;
-  @media screen and (max-width: 700px) {
-    flex: 0;
-  }
-`
-const DocList = styled.div`
-  padding: 0 16px;
-  flex: 4;
+const WrapPage = styled.div`
+  display: block;
+  margin: 0 auto;
+  padding-top: 24px 24px 0;
+  max-width: 920px;
 `
 const WrapMain = styled.div`
-  max-width: 1280px;
-  margin-left: auto;
-  margin-right: auto;
-  @media screen and (max-width: 700px) {
-    margin-left: 0;
-    margin-right: 0;
-  }
+  display: grid;
+  grid-template: minmax(0,1fr) 300px / 1fr;
+  grid-template-areas:
+  "main toc";
+  padding: 16px;
 `
 const Main = styled.div`
-  flex-grow: 1;
-  font-size: 16px;
-  min-width: 0;
-  max-width: 100%;
-  `
+  grid-area: main;
+  padding: 32px;
+`
 const ToC = styled.div`
+  grid-area: toc;
   position: sticky;
   top: 0;
   align-self: flex-start;
@@ -189,6 +155,14 @@ const ToC = styled.div`
   @media screen and (max-width: 1000px) {
     display: none;
   }
+`
+const WrapDoc = styled.div`
+  display: flex;
+  padding: 16px;
+`
+const Doc = styled.div`
+  padding: 32px;
+  flex: 1;
 `
 const FooterWrap = styled.div`
   grid-area: footer;
