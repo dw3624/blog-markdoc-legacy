@@ -5,10 +5,10 @@ const ArticleIndex = ({ sortedItems }) => {
   return (
     <StyledUl>
       {sortedItems.map(({ id, date, title, desc, tags }, idx) => {
-        const isLast = idx === sortedItems.length - 1
+        // const isLast = idx === sortedItems.length - 1
         return (
-          <>
-            <StyledLi key={idx}>
+          <div key={id}>
+            <StyledLi>
               <Article
                 id={id}
                 date={date}
@@ -17,8 +17,8 @@ const ArticleIndex = ({ sortedItems }) => {
                 tags={tags}
               />
             </StyledLi>
-            {!isLast && <Separator/>}
-          </>
+            <Separator/>
+          </div>
         )
       })}
     </StyledUl>
@@ -28,7 +28,7 @@ const ArticleIndex = ({ sortedItems }) => {
 export default ArticleIndex;
 
 const StyledUl = styled.ul`
-  margin-top: 1.5rem;
+  margin: 1.5rem 0 6rem;
   padding-left: 0;
 `
 const StyledLi = styled.li`

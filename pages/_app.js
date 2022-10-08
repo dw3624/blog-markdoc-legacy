@@ -1,5 +1,4 @@
 import React from 'react';
-import Link from 'next/link';
 import { TopNav, Footer, TableOfContents } from '../components/Shell';
 import styled from 'styled-components';
 import { useRouter } from 'next/router';
@@ -73,26 +72,39 @@ function MyApp({ Component, pageProps }) {
     : [];
 
   const isDocs = router.asPath.startsWith('/docs/');
+  const isList = router.asPath.endsWith('/docs')
   const isLandingPage = router.pathname === '/';
 
   return (
     <>
       <Wrap>
         <Header><TopNav/></Header>
-        <Page>
-          <Main>
-            {isDocs && title? (
-              <>
-                <Title>{title}</Title>
-                <Desc>{desc}</Desc>
-                <Date>{date}</Date>
-                <TagIndex tags={tags}/>
-                <Separator/>
-              </>
-            ): null}
-            <Component {...pageProps} />
-          </Main>
-          {isDocs && toc? <ToC><TableOfContents toc={toc} /></ToC>: null}
+        <Page isList={isList}>
+          {isList? (
+            <>
+              <SideLeft/>
+              <DocList>
+                <Component {...pageProps} />
+              </DocList>
+              <SideRight/>
+            </>
+          ): (
+            <WrapMain>
+              <Main>
+                {isDocs && title? (
+                  <>
+                    <Title>{title}</Title>
+                    <Desc>{desc}</Desc>
+                    <Date>{date}</Date>
+                    <TagIndex tags={tags}/>
+                    <Separator/>
+                  </>
+                ): null}
+                <Component {...pageProps} />
+              </Main>
+              {isDocs && toc? <ToC><TableOfContents toc={toc} /></ToC>: null}
+            </WrapMain>
+          )}
         </Page>
         <FooterWrap><Footer/></FooterWrap>
       </Wrap>
@@ -100,6 +112,8 @@ function MyApp({ Component, pageProps }) {
         body {
           margin: 0px;
           padding: 0px;
+          width: 100%;
+          overflow-x: hidden;
         }
       `}</style>
     </>
@@ -111,7 +125,8 @@ export default MyApp
 const Wrap = styled.div`
   height: 100%;
   display: grid;
-  grid-template: 53px 1fr 80px / 1fr;
+  overflow-x: hidden;
+  grid-template: auto 1fr 80px / minmax(0, 1fr);
   grid-template-areas:
     "header"
     "page"
@@ -122,15 +137,39 @@ const Header = styled.div`
   grid-area: header;
   position: sticky;
   top: 0;
+  border-bottom: 1px solid #000;
 `
 const Page = styled.div`
   grid-area: page;
   display: flex;
+  justify-content: center;
   flex-grow: 1;
-  padding: 0 12rem 8rem;
+  padding: 32px 16px;
+`
+const SideLeft = styled.div`
+  flex: 1;
+  @media screen and (max-width: 700px) {
+    flex: 0;
+  }
+`
+const SideRight = styled.div`
+  flex: 1;
+  @media screen and (max-width: 700px) {
+    flex: 0;
+  }
+`
+const DocList = styled.div`
+  padding: 0 16px;
+  flex: 4;
+`
+const WrapMain = styled.div`
   max-width: 1280px;
   margin-left: auto;
   margin-right: auto;
+  @media screen and (max-width: 700px) {
+    margin-left: 0;
+    margin-right: 0;
+  }
 `
 const Main = styled.div`
   flex-grow: 1;

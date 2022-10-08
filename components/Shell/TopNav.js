@@ -8,8 +8,8 @@ export const TopNav = () => {
     <Nav>
       <Link href='/'><Logo>logo</Logo></Link>
       <Section>
-        <Link href='/docs'><MenuLink>docs</MenuLink></Link>
-        <Link href='/docs'><MenuLink>docs</MenuLink></Link>
+        <Link href='/docs'><MenuLink>Docs</MenuLink></Link>
+        <MenuLink href='https://github.com/dw3624'>GitHub</MenuLink>
       </Section>
     </Nav>
   )
@@ -22,13 +22,11 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   gap: 1rem;
-  padding: 1rem 2rem;
-  background: white;
-  border-bottom: 1px solid var(--border-color);
+  padding: 1rem 2.5rem;
 `
 const Logo = styled.a`
   cursor: pointer;
-  font-size: 20px;
+  font-size: 25px;
   font-weight: 800;
   text-decoration: none;
   transition: all 0.5s ease;
