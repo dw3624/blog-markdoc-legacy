@@ -2,7 +2,7 @@
 title: 초기 Grid 세팅(React + styled-component)
 date: "2020-02-02"
 desc: this is a test
-tags: React typescript css tag tag tag tag tag tag tag
+tags: React typescript css
 ---
 
 # 초기 Grid 세팅(React + styled-component)

@@ -1,6 +1,6 @@
 import 'prismjs'
-import { useEffect, useRef, useState } from 'react';
 import copy from 'copy-to-clipboard'
+import { useEffect, useRef, useState } from 'react';
 import { Icon } from './Icon';
 
 Prism.languages.markdoc = {
@@ -82,6 +82,9 @@ export const Code = ({children, 'data-language': language}) => {
             border-radius: 4px;
             border: none;
             font-size: 15px;
+          }
+          pre {
+            white-space: pre-wrap;
           }
         `}
       </style>

@@ -5,7 +5,7 @@ import ArticleIndex from '../components/article/index';
 import { Pagination } from '../components/Shell/Pagenation';
 
 export async function getStaticProps() {
-  const sortedItems = getSortedItems()
+  const sortedItems = getSortedItems().reverse()
   return {
     props: {
       sortedItems

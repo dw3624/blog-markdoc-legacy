@@ -87,7 +87,7 @@ function MyApp({ Component, pageProps }) {
               </Doc>
             </WrapDoc>
           ): (
-            <WrapMain>
+            <WrapMain isLanding={isLanding}>
               <Main>
                 {isDocs && title? (
                   <>
@@ -106,8 +106,6 @@ function MyApp({ Component, pageProps }) {
         </WrapPage>
       </Wrap>
       <Footer/>
-      {/* <FooterWrap> */}
-      {/* </FooterWrap> */}
       <style jsx global>{`
         body {
           margin: 0px;
@@ -126,34 +124,34 @@ const Wrap = styled.div`
   height: auto;
 `
 const WrapPage = styled.div`
-  display: block;
   margin: 0 auto;
   padding-top: 24px 24px 0;
-  max-width: 920px;
+  max-width: 1280px;
 `
 const WrapMain = styled.div`
   display: grid;
-  grid-template: minmax(0,1fr) 300px / 1fr;
+  grid-template-columns: ${props => props.isLanding? '1fr 0fr': 'minmax(0, 1fr) 300px'};
   grid-template-areas:
-  "main toc";
+    "main toc";
   padding: 16px;
 `
 const Main = styled.div`
   grid-area: main;
   padding: 32px;
+  white-space: normal;
+  word-break: break-all;
 `
 const ToC = styled.div`
   grid-area: toc;
   position: sticky;
   top: 0;
   align-self: flex-start;
-  flex: 0 0 240px;
   top: 2.5rem;
   max-height: calc(100vh - 100px);
   margin-bottom: 1rem;
   padding: 3rem 0 0 1rem;
   @media screen and (max-width: 1000px) {
-    display: none;
+    flex: 0
   }
 `
 const WrapDoc = styled.div`

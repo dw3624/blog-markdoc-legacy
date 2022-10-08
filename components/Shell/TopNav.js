@@ -7,9 +7,9 @@ export const TopNav = () => {
   return (
     <Header>
       <Nav>
-        <Link href='/'><Logo>logo</Logo></Link>
+        <Link href='/'><Logo href='/'>logo</Logo></Link>
         <Section>
-          <Link href='/docs'><MenuLink>Docs</MenuLink></Link>
+          <Link href='/docs'><MenuLink href='/docs'>Docs</MenuLink></Link>
           <MenuLink href='https://github.com/dw3624'>GitHub</MenuLink>
         </Section>
       </Nav>
@@ -19,7 +19,9 @@ export const TopNav = () => {
 
 const Header = styled.header`
   height: 70px;
-  display: block;
+  position: sticky;
+  top: 0;
+  z-index: 1;
 `
 const Nav = styled.nav`
   /* box-sizing: border-box; */
@@ -35,6 +37,7 @@ const Logo = styled.a`
   font-size: 25px;
   font-weight: 800;
   text-decoration: none;
+  color: #000;
   transition: all 0.5s ease;
   &:hover{
     color: ${theme.colors.accent};
