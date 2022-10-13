@@ -1,7 +1,8 @@
 import React from 'react';
-import { TopNav, Footer, TableOfContents } from '../components/Shell';
-import styled from 'styled-components';
 import { useRouter } from 'next/router';
+import styled from 'styled-components';
+import { TopNav, Footer, TableOfContents } from '../components/Shell';
+import TagIndex from './../components/tag/index';
 
 import 'prismjs';
 import 'prismjs/components/prism-bash.min';
@@ -15,8 +16,10 @@ import 'prismjs/components/prism-typescript.min';
 import 'prismjs/components/prism-yaml.min';
 import 'prismjs/plugins/autolinker/prism-autolinker.min';
 import 'prismjs/themes/prism.css';
-import TagIndex from './../components/tag/index';
-import { theme } from './../styles/theme';
+
+import { theme } from '../styles/theme';
+import GlobalStyle from './../styles/GLobalStyle';
+
 
 const TITLE = 'The first docs of markdoc';
 const DESC = 'Here is a desctiption statement';
@@ -77,6 +80,7 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
+      <GlobalStyle/>
       <Wrap>
         <TopNav/>
         <WrapPage>
@@ -129,10 +133,7 @@ const WrapPage = styled.div`
   max-width: 1280px;
 `
 const WrapMain = styled.div`
-  display: grid;
-  grid-template-columns: ${props => props.isLanding? '1fr 0fr': 'minmax(0, 1fr) 300px'};
-  grid-template-areas:
-    "main toc";
+  display: flex;
   padding: 16px;
 `
 const Main = styled.div`
@@ -140,11 +141,11 @@ const Main = styled.div`
   padding: 32px;
   white-space: normal;
   word-break: break-all;
+  line-height: 32px;
 `
 const ToC = styled.div`
-  grid-area: toc;
+  width: 300px;
   position: sticky;
-  top: 0;
   align-self: flex-start;
   top: 2.5rem;
   max-height: calc(100vh - 100px);

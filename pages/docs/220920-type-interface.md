@@ -38,8 +38,9 @@ const user: Sample{
 ```
 
 # Interface와 Type의 차이
+
 | 구분 | interface | type |
-| :--: | :--: | :--: |
+| -- | -- | -- |
 | 확장 | ○ | × |
 | 계승 | ○ | × |
 
