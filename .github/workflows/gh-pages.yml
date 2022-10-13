@@ -18,8 +18,8 @@ jobs:
       # Node.js 환경 설정
       - name: setup node
         uses: actions/setup-node@v3
-          with:
-            node-version: 16
+        with:
+          node-version: 16
 
       # package.json 내 패키지 설치
       - name: install
