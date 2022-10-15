@@ -7,7 +7,8 @@ export const Footer = () => {
   return (
     <Wrap isLanding={isLanding}>
       <Foot>
-        <Item>©2022. DongwonKang All rights reserved.</Item>
+        <Item>Nice to meet you!</Item>
+        <Item>©2022. dw3624 All rights reserved.</Item>
         {/* <Item style={{marginLeft: "auto"}}>toggle</Item> */}
       </Foot>
     </Wrap>
@@ -15,21 +16,24 @@ export const Footer = () => {
 }
 
 const Wrap = styled.footer(props =>`
-  height: 80px;
+  height: 120px;
   width: 100%;
   position: ${props.isLanding? 'fixed': 'relative'};
   bottom: ${props.isLanding? 0: null};
+  background-color: var(--primary)
 `)
 const Foot = styled.footer`
+  height: 100%;
   display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
   box-sizing: border-box;
   color: var(--dark);
   padding: 1rem 0;
   justify-content: center;
 `
 const Item =styled.div`
+  text-align: center;
   font-size: 13px;
-  display: flex;
   align-items: center;
-  margin: 0.5rem 1.5rem;
 `

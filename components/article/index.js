@@ -28,14 +28,13 @@ const ArticleIndex = ({ sortedItems }) => {
 export default ArticleIndex;
 
 const StyledUl = styled.ul`
-  margin: 1.5rem 0 6rem;
   padding-left: 0;
 `
 const StyledLi = styled.li`
   list-style-type: none;
-  margin: 2rem 0 2rem;
+  margin: 1.5rem 0 1.5rem;
 `
 const Separator = styled.div`
-  border-bottom: 1px solid #dfdfdf;
+  border-bottom: 1px solid var(--gray-medium);
   line-height: 0.1em;
 `

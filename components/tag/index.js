@@ -3,12 +3,17 @@ import Tag from './tag';
 
 const TagIndex = ({tags}) => {
   return (
-    <div>
+    <Wrap>
       {tags && tags.split(' ').map((tag) => (
         <Tag key={tag}>{tag}</Tag>
       ))}
-    </div>
+    </Wrap>
   )
 }
 
 export default TagIndex
+
+const Wrap = styled.div`
+  display: flex;
+  gap: 0.25rem;
+`

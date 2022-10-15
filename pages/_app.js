@@ -17,9 +17,7 @@ import 'prismjs/components/prism-yaml.min';
 import 'prismjs/plugins/autolinker/prism-autolinker.min';
 import 'prismjs/themes/prism.css';
 
-import { theme } from '../styles/theme';
-import GlobalStyle from './../styles/GLobalStyle';
-
+import GlobalStyle from '../styles/GlobalStyle';
 
 const TITLE = 'The first docs of markdoc';
 const DESC = 'Here is a desctiption statement';
@@ -92,32 +90,24 @@ function MyApp({ Component, pageProps }) {
             </WrapDoc>
           ): (
             <WrapMain isLanding={isLanding}>
-              <Main>
+              <Main isDocs={isDocs}>
                 {isDocs && title? (
                   <>
+                    <Date>{date}</Date>
                     <Title>{title}</Title>
                     <Desc>{desc}</Desc>
-                    <Date>{date}</Date>
                     <TagIndex tags={tags}/>
                     <Separator/>
                   </>
                 ): null}
                 <Component {...pageProps} />
               </Main>
-              {isDocs && toc? <ToC><TableOfContents toc={toc} /></ToC>: null}
+              {isDocs && toc.length > 0? <ToC><TableOfContents toc={toc} /></ToC>: null}
             </WrapMain>
           )}
         </WrapPage>
       </Wrap>
       <Footer/>
-      <style jsx global>{`
-        body {
-          margin: 0px;
-          padding: 0px;
-          width: 100%;
-          overflow-x: hidden;
-        }
-      `}</style>
     </>
   )
 }
@@ -134,14 +124,16 @@ const WrapPage = styled.div`
 `
 const WrapMain = styled.div`
   display: flex;
-  padding: 16px;
+  flex-grow: 1;
+  min-height: 100vh;
+  max-width: 100vw;
+  padding: ${props => props.isLanding? '2rem 1.5rem 3rem': ''};
 `
 const Main = styled.div`
-  grid-area: main;
-  padding: 32px;
-  white-space: normal;
-  word-break: break-all;
-  line-height: 32px;
+  flex: 1;
+  flex-grow: 1;
+  min-width: 0;
+  padding: ${props => props.isDocs? '2rem 1.5rem 3rem': ''};
 `
 const ToC = styled.div`
   width: 300px;
@@ -157,29 +149,32 @@ const ToC = styled.div`
 `
 const WrapDoc = styled.div`
   display: flex;
-  padding: 16px;
+  flex-grow: 1;
+  min-height: 100vh;
+  max-width: 960px;
+  margin: 0 auto;
 `
 const Doc = styled.div`
-  padding: 32px;
   flex: 1;
+  max-width: 100%;
+  min-width: 0;
+  padding: 32px;
 `
-const FooterWrap = styled.div`
-  grid-area: footer;
-  padding: 0.25rem;
-`
-const Title = styled.h1`
-  font-size: ${theme.fontSize.title}px;
+const Title = styled.div`
+  font-size: var(--font-size-6);
+  font-weight: 600;
 `
 const Desc = styled.p`
-  font-size: ${theme.fontSize.body}px;
 `
 const Date = styled.div`
-  margin: 0.8rem 0 0.5rem;
-  font-size: ${theme.fontSize.sub}px;
+  padding-left: 0.2rem;
+  color: gray;
+  font-size: var(--font-size-2);
+  font-weight: 600;
 `
 const Separator = styled.div`
-  margin: 2rem 0 3rem;
-  border-bottom: 1px solid #aaa;
+  margin: 1rem 0 2rem;
+  border-bottom: 1px solid var(--gray-light);
   line-height: 0.1em;
   opacity: 0;
 `

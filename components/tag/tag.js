@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-// import { theme } from '../../styles/theme'
 
 const Tag = ({children}) => {
   return (
@@ -12,11 +11,12 @@ const Tag = ({children}) => {
 export default Tag
 
 const StyledTag = styled.button`
-  font-weight: 600;;
-  /* background-color: ${theme.colors.primary}; */
-  padding: 5px 12px;
-  gap: 10px;
-  border-radius: 50px;
-  border: none;
-  margin: 0.25rem 0.25rem 0 0;
+  height: 26px;
+  font-size: var(--font-size-2);
+  line-height: 1.5rem;
+  font-weight: 700;;
+  background-color: var(--primary);
+  border: 1px solid transparent;
+  padding: 0 0.7rem;
+  border-radius: 100px;
 `

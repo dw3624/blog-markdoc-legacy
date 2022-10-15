@@ -1,5 +1,5 @@
 import React from 'react';
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { getSortedItems } from '../lib/items';
 import ArticleIndex from '../components/article/index';
 import { Pagination } from '../components/Shell/Pagenation';
@@ -17,6 +17,10 @@ const Docs = ({ sortedItems }) => {
   let limit = 10
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
+  useEffect(() => {
+    window.scrollTo({top: 0})
+    console.log(page)
+  }, [page])
 
   return (
     <>
