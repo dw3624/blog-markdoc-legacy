@@ -24,7 +24,7 @@ jobs:
 
       # package.json 내 패키지 설치
       - name: install
-        run: npm install
+        run: npm ci
 
       # Next.js 앱 빌드
       # 프로젝트 root 디렉토리에 .next 디렉토리 생성됨
