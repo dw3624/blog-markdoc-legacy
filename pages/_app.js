@@ -17,7 +17,7 @@ import 'prismjs/components/prism-yaml.min';
 import 'prismjs/plugins/autolinker/prism-autolinker.min';
 import 'prismjs/themes/prism.css';
 
-import GlobalStyle from '../styles/GlobalStyle';
+import GlobalStyle from './../styles/GlobalStyle';
 
 const TITLE = 'The first docs of markdoc';
 const DESC = 'Here is a desctiption statement';
