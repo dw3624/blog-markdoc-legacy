@@ -17,7 +17,8 @@ import 'prismjs/components/prism-yaml.min';
 import 'prismjs/plugins/autolinker/prism-autolinker.min';
 import 'prismjs/themes/prism.css';
 
-import GlobalStyle from './../styles/GlobalStyle';
+// import GlobalStyle from './../styles/GlobalStyle';
+import './../styles/GlobalStyle.css';
 
 const TITLE = 'The first docs of markdoc';
 const DESC = 'Here is a desctiption statement';
@@ -78,7 +79,6 @@ function MyApp({ Component, pageProps }) {
 
   return (
     <>
-      <GlobalStyle/>
       <Wrap>
         <TopNav/>
         <WrapPage>
