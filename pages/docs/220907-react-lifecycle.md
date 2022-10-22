@@ -1,5 +1,6 @@
 ---
 title: React Lifecycle
+date: '2022-09-07'
 tags: React
 ---
 

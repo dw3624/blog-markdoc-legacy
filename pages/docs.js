@@ -5,7 +5,7 @@ import ArticleIndex from '../components/article/index';
 import { Pagination } from '../components/Shell/Pagenation';
 
 export async function getStaticProps() {
-  const sortedItems = getSortedItems().reverse()
+  const sortedItems = getSortedItems()
   return {
     props: {
       sortedItems
@@ -19,7 +19,6 @@ const Docs = ({ sortedItems }) => {
   const offset = (page - 1) * limit
   useEffect(() => {
     window.scrollTo({top: 0})
-    console.log(page)
   }, [page])
 
   return (
@@ -27,8 +26,8 @@ const Docs = ({ sortedItems }) => {
       <ArticleIndex sortedItems={sortedItems.slice(offset, offset + limit)}></ArticleIndex>
       <Pagination
         total={sortedItems.length}
-        limit={limit}
-        page={page}
+        pageSize={limit}
+        currentPage={page}
         setPage={setPage}
       />
     </>

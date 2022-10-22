@@ -1,5 +1,6 @@
 ---
 title: type과 interface
+date: '2022-09-20'
 tags: typescript
 ---
 

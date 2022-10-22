@@ -1,30 +1,76 @@
 import styled from 'styled-components';
 import { theme } from './../../styles/theme';
+import { usePagination, DOTS } from './usePagination';
 
-export const Pagination = ({total, limit, page, setPage}) => {
-  const numPages = Math.ceil(total / limit)
+
+export const Pagination = props => {
+  const {
+    setPage,
+    total,
+    siblingCount = 1,
+    currentPage,
+    pageSize
+  } = props
+  const paginationRange = usePagination({
+    currentPage,
+    total,
+    siblingCount,
+    pageSize
+  })
+
+  if (currentPage === 0 || paginationRange.length < 2) {
+    return null
+  }
+
+  let lastPage = paginationRange[paginationRange.length - 1]
+
   return (
     <Wrap>
       <PageWrap>
-        <PageBtn onClick={() => setPage(page-1)} disabled={page == 1}>
+        <PageBtn
+          onClick={() => setPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
           &laquo;
         </PageBtn>
-        {Array(numPages)
-          .fill()
-          .map((_, i) => (
+
+        {paginationRange.map(pageNumber => {
+          if (pageNumber === DOTS) {
+            return <PageBtnDot>&#8230;</PageBtnDot>
+          }
+          return (
             <PageBtn
-            id={page === i+1? 'active': null}
-            key={i + 1}
-            onClick={() => setPage(i+1)}
-            aria-current={page === i+1? "page": null}
+              id={pageNumber === currentPage? 'active': null}
+              onClick={() => setPage(pageNumber)}
             >
-              {i + 1}
+              {pageNumber}
             </PageBtn>
-          ))}
-        <PageBtn onClick={() => setPage(page+1)} disabled={page == numPages}>
+          )
+        })}
+
+        <PageBtn
+          onClick={() => setPage(currentPage + 1)}
+          disabled={currentPage === lastPage }
+        >
           &raquo;
         </PageBtn>
       </PageWrap>
+
+      <PageWrapSmall>
+        <PageBtn
+          onClick={() => setPage(currentPage - 1)}
+          disabled={currentPage === 1}
+        >
+          &laquo; Prev
+        </PageBtn>
+        <PageBtn id="active">{currentPage}</PageBtn>
+        <PageBtn
+          onClick={() => setPage(currentPage + 1)}
+          disabled={currentPage === lastPage }
+        >
+          Next &raquo;
+        </PageBtn>
+      </PageWrapSmall>
     </Wrap>
   )
 }
@@ -37,6 +83,16 @@ const Wrap = styled.div`
 const PageWrap = styled.div`
   display: flex;
   gap: 0.5rem;
+  @media screen and (max-width: 500px) {
+    display: none;
+  }
+`
+const PageWrapSmall = styled.div`
+  display: flex;
+  gap: 2rem;
+  @media screen and (min-width: 500px) {
+    display: none;
+  }
 `
 const PageBtn = styled.button`
   cursor: pointer;
@@ -54,4 +110,12 @@ const PageBtn = styled.button`
     background-color: ${theme.colors.accent};
     color: #ffffff;
   }
+`
+const PageBtnDot = styled.button`
+  cursor: default;
+  background-color: transparent;
+  border-radius: 6px;
+  border: 1px solid transparent;
+  padding: 8px 16px;
+  text-decoration: none;
 `

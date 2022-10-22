@@ -1,8 +1,8 @@
 ---
 title: 호이스팅
+date: '2022-10-19'
 desc: 변수의 선언과 초기화를 분리한 후, 선언만 코드의 최상단으로 옮기는 것
-date: "2022-10-19"
-tags: frontend 기술면접
+tags: javascript 기술면접
 ---
 
 
