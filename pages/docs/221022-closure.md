@@ -8,7 +8,7 @@ tags: javascript 기술면접
 
 ## Closure
 
-[MDN 클로저 정의](https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures#%EC%8B%A4%EC%9A%A9%EC%A0%81%EC%9D%B8_%ED%81%B4%EB%A1%9C%EC%A0%80)
+[MDN 클로저 정의](https://developer.mozilla.org/ko/docs/Web/JavaScript/Closures)
 > "A closure is the combination of a function and the lexical environment within which that function was declared."
 
 클로저는 함수와 함수가 선언된 어휘적 환경(Lexical environment)의 조합을 말합니다.

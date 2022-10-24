@@ -17,9 +17,9 @@ const Docs = ({ sortedItems }) => {
   let limit = 10
   const [page, setPage] = useState(1)
   const offset = (page - 1) * limit
-  useEffect(() => {
-    window.scrollTo({top: 0})
-  }, [page])
+  // useEffect(() => {
+  //   window.scrollTo({top: 0})
+  // }, [page])
 
   return (
     <>

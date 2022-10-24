@@ -1,5 +1,6 @@
 ---
 title: Generator
+date: '2022-08-03'
 tags: python
 ---
 
@@ -30,9 +31,9 @@ def generator():
     yield 1
     yield 2
     yield 3
-    
+
 gen = generator()
-next(gen) # 1 
+next(gen) # 1
 next(gen) # 2
 next(gen) # 3
 ```

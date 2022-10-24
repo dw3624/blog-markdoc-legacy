@@ -20,7 +20,8 @@ const Wrap = styled.footer(props =>`
   width: 100%;
   position: ${props.isLanding? 'fixed': 'relative'};
   bottom: ${props.isLanding? 0: null};
-  background-color: var(--primary)
+  background-color: var(--primary);
+  z-index: 2;
 `)
 const Foot = styled.footer`
   height: 100%;

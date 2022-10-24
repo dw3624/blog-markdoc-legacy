@@ -1,5 +1,6 @@
 ---
 title: DB설계 및 SQL작성 - 물리명 vs 논리명
+date: '2021-12-21'
 tags: sql
 ---
 

@@ -1,5 +1,6 @@
 ---
 title: PythonAnywhere 사용한 이메일봇 만들기
+date: '2022-07-05'
 tags: python
 ---
 

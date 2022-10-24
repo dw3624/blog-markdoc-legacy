@@ -1,4 +1,4 @@
-import React from 'react';
+import {useEffect} from 'react';
 import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { TopNav, Footer, TableOfContents } from '../components/Shell';
@@ -17,11 +17,10 @@ import 'prismjs/components/prism-yaml.min';
 import 'prismjs/plugins/autolinker/prism-autolinker.min';
 import 'prismjs/themes/prism.css';
 
-// import GlobalStyle from './../styles/GlobalStyle';
 import './../styles/GlobalStyle.css';
 
-const TITLE = 'The first docs of markdoc';
-const DESC = 'Here is a desctiption statement';
+const TITLE = '';
+const DESC = '';
 
 const collectHeadings = (node, sections = []) => {
   if (node) {
@@ -125,7 +124,7 @@ const WrapPage = styled.div`
 const WrapMain = styled.div`
   display: flex;
   flex-grow: 1;
-  min-height: 100vh;
+  /* min-height: 100%; */
   max-width: 100vw;
   padding: ${props => props.isLanding? '2rem 1.5rem 3rem': ''};
 `

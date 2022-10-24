@@ -1,5 +1,6 @@
 ---
 title: django 텍스트 에디터 (CKEditor)
+date: '2021-11-26'
 tags: django python
 ---
 
@@ -51,7 +52,7 @@ from ckeditor.fields import RichTextField
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextField()
-    
+
 # 이후 migration 진행
 ```
 
@@ -103,7 +104,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 class Article(models.Model):
     title = models.CharField(max_length=100)
     content = RichTextUploadingField()
-    
+
 # 이후 migration 진행
 ```
 

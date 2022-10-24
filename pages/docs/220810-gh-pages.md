@@ -1,7 +1,8 @@
 ---
 title: gh-pages로 배포하기
+date: '2022-08-10'
 tags: React github
---- 
+---
 
 ## gh-pages
 - github에서 제공하는 무료 서비스
@@ -31,7 +32,7 @@ $ npm i gh-pages
 ```json
 {
   "name": "react-for-beginners",
-  ...  
+  ...
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",

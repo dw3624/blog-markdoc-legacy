@@ -1,5 +1,6 @@
 ---
 title: Card flip (CSS)
+date: '2021-12-07'
 tags: css django
 ---
 

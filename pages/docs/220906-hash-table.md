@@ -1,5 +1,6 @@
 ---
 title: Hash Table
+date: '2022-09-06'
 tags: python
 ---
 

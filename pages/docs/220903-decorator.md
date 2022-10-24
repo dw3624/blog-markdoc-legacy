@@ -1,9 +1,10 @@
 ---
-title: Decorator 
+title: Decorator
+date: '2022-09-03'
 tags: python
 ---
 
-# Decorator
+## 개요
 
 특정 함수 받아 명령 추가한 뒤 다시 함수 형태로 반환하는 함수
 

@@ -1,5 +1,6 @@
 ---
-title: 기술면접 
+title: 기술면접
+date: '2022-07-10'
 tags: 기타
 ---
 
@@ -96,7 +97,7 @@ scheme:[//[user[:password]@]host[:port]][/path][?query][#fragment]
 
 - % : 포함하는 요소 너비 %로 패딩 지정
 
-- inherit : 상위 요소에서 패딩 속성 상속 
+- inherit : 상위 요소에서 패딩 속성 상속
 
   > 음수 값 불가
   >

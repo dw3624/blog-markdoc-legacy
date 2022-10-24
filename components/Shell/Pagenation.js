@@ -36,10 +36,11 @@ export const Pagination = props => {
 
         {paginationRange.map(pageNumber => {
           if (pageNumber === DOTS) {
-            return <PageBtnDot>&#8230;</PageBtnDot>
+            return <PageBtnDot key={pageNumber}>&#8230;</PageBtnDot>
           }
           return (
             <PageBtn
+              key={pageNumber}
               id={pageNumber === currentPage? 'active': null}
               onClick={() => setPage(pageNumber)}
             >

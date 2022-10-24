@@ -28,13 +28,13 @@
   --line-height-6: 40px;
   --line-height-7: 48px;
   --line-height-jumbo: 90px;
-  scroll-behavior: smooth;
+  /* scroll-behavior: smooth; */
 }
-@media (prefers-reduced-motion: reduce) {
+/* @media (prefers-reduced-motion: reduce) {
   :root {
       scroll-behavior: auto;
   }
-}
+} */
 :root,
 .light {
   --white: #ffffff;
@@ -68,10 +68,7 @@
   --black: #000000;
 }
 
-
-html,
-body,
-#__next {
+body {
   height: 100%;
   width: 100%;
   padding: 0;
@@ -80,10 +77,21 @@ body,
   overflow-x: auto;
 }
 
+/* html,
+body,
 #__next {
-  /* https://www.joshwcomeau.com/css/custom-css-reset/ */
+  height: 100%;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  font-family: var(--sans);
+  overflow-x: auto;
+} */
+
+/* https://www.joshwcomeau.com/css/custom-css-reset/ */
+/* #__next {
   isolation: isolate;
-}
+} */
 
 body {
   color: var(--text);
@@ -94,7 +102,7 @@ body {
 body ::selection,
 body.dark ::selection{
   color: var(--black) !important;
-  background: var(--theme) !important;
+  background: #ffafaf !important;
 }
 
 a {
@@ -367,3 +375,4 @@ pre .token.variable {
     display: initial;
   }
 }
+

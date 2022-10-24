@@ -1,5 +1,6 @@
 ---
 title: Global Interpreter
+date: '2022-09-04'
 tags: python
 ---
 
