@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { theme } from './../../styles/theme';
-import { usePagination, DOTS } from './usePagination';
+import { theme } from '../../styles/theme';
+import { usePagination, LEFTDOTS, RIGHTDOTS } from './usePagination';
 
 
 export const Pagination = props => {
@@ -17,7 +17,6 @@ export const Pagination = props => {
     siblingCount,
     pageSize
   })
-
   if (currentPage === 0 || paginationRange.length < 2) {
     return null
   }
@@ -35,7 +34,7 @@ export const Pagination = props => {
         </PageBtn>
 
         {paginationRange.map(pageNumber => {
-          if (pageNumber === DOTS) {
+          if (pageNumber === LEFTDOTS || pageNumber === RIGHTDOTS) {
             return <PageBtnDot key={pageNumber}>&#8230;</PageBtnDot>
           }
           return (

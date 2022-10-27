@@ -1,18 +1,23 @@
 import React from 'react';
 import Link from "next/link"
 import styled from 'styled-components';
+import { useAtom } from 'jotai';
+import { currentPage } from '../../state/jotai/currentPage';
 
 export const TopNav = () => {
+  const [page, setPage] = useAtom(currentPage)
+
   return (
     <Header>
       <Nav>
         <NavContent>
         <Link href='/'><Logo href='/'>logo</Logo></Link>
         <Section>
-          <Link href='/docs'><MenuLink href='/docs'>Docs</MenuLink></Link>
+          <Link href='/docs'>
+            <MenuLink href='/docs' onClick={() => setPage(1)}>Docs</MenuLink>
+          </Link>
           <MenuLink href='https://github.com/dw3624'>GitHub</MenuLink>
         </Section>
-
         </NavContent>
       </Nav>
     </Header>

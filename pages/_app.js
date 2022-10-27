@@ -3,6 +3,7 @@ import { useRouter } from 'next/router';
 import styled from 'styled-components';
 import { TopNav, Footer, TableOfContents } from '../components/Shell';
 import TagIndex from './../components/tag/index';
+import { Provider as JotaiProvider } from 'jotai';
 
 import 'prismjs';
 import 'prismjs/components/prism-bash.min';
@@ -73,11 +74,11 @@ function MyApp({ Component, pageProps }) {
     : [];
 
   const isLanding = router.pathname === '/';
-  const isList = router.asPath.endsWith('/docs');
+  const isList = router.asPath.endsWith('/docs') || router.asPath.startsWith('/docs#');
   const isDocs = router.asPath.startsWith('/docs/');
 
   return (
-    <>
+    <JotaiProvider>
       <Wrap>
         <TopNav/>
         <WrapPage>
@@ -107,7 +108,7 @@ function MyApp({ Component, pageProps }) {
         </WrapPage>
       </Wrap>
       <Footer/>
-    </>
+    </JotaiProvider>
   )
 }
 
