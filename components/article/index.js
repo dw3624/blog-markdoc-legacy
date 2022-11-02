@@ -34,7 +34,7 @@ const StyledLi = styled.li`
   list-style-type: none;
   margin: 1.5rem 0 1.5rem;
 `
-const Separator = styled.div`
+export const Separator = styled.div`
   border-bottom: 1px solid var(--gray-medium);
   line-height: 0.1em;
 `

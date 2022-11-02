@@ -22,6 +22,9 @@ const Wrap = styled.footer(props =>`
   bottom: ${props.isLanding? 0: null};
   background-color: var(--primary);
   z-index: 2;
+  @media screen and (max-width: 601px) {
+    height: 100px;
+  }
 `)
 const Foot = styled.footer`
   height: 100%;
