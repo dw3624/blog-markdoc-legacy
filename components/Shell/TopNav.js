@@ -7,7 +7,7 @@ import { currentPage } from '../../state/jotai/currentPage';
 export const TopNav = () => {
   const [page, setPage] = useAtom(currentPage)
   const [showMobileMenu, setShowobileMenu] = useState(false)
-  console.log(showMobileMenu)
+
   return (
     <Header>
       <Nav>
