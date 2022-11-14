@@ -1,6 +1,8 @@
 ---
 title: 마크다운 블로그 만들어보기 2
-tags: Next.js  Markdoc
+date: '2022-11-01'
+desc: 본 블로그 제작기
+tags: Next.js Markdoc
 ---
 
 ## 개요

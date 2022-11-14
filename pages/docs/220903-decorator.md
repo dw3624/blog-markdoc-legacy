@@ -26,6 +26,9 @@ def decorator(func):
 ## 적용
 
 ```python
+def func(tmp):
+    print('exmaple1')
+
 decorated_func = decorator(func)
 ```
 

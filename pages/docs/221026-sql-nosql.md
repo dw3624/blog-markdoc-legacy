@@ -1,5 +1,8 @@
 ---
 title: SQL vs NoSQL
+date: '2022-10-26'
+desc:
+tags: sql
 ---
 
 ## 개요
