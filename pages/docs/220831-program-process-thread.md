@@ -13,7 +13,7 @@ tag: 운영체제
 
 
 ### 프로세스
-![process](220831-program-process-thread/process.png)
+![process](../../public/images/docs/220831-program-process-thread/process.png)
 
 - 정의
   - 메모리에 올라와 실행되고 있는 프로그램의 인스턴스(독립적인 개체)(동적인 상태)
@@ -30,7 +30,7 @@ tag: 운영체제
   - 최소 1개 스레드(메인 스레드)를 가짐
 
 ### 스레드
-![thread](220831-program-process-thread/thread.png)
+![thread](../../public/images/docs/220831-program-process-thread/thread.png)
 
 - 정의
   - 프로세스 내에서 할당받은 자원을 이용해 동작하는 실행 단위
@@ -102,7 +102,7 @@ tag: 운영체제
 
 
 ## 병행 처리(Concurrency)와 병렬 처리(Parallelism)
-![concurrency_parallelism](220831-program-process-thread/concurrency_parallelism.png)
+![concurrency_parallelism](../../public/images/docs/220831-program-process-thread/concurrency_parallelism.png)
 
 - 병행 처리
   - 처리를 분할, context switch를 반복하며 처리가 병행적으로 실행됨
