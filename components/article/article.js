@@ -4,15 +4,16 @@ import styled from "styled-components";
 import { theme } from './../../styles/theme';
 
 const Article = ({ id, date, title, desc, tags }) => {
+  const DEFAULT = '...'
   return (
     <>
       <Row>
         <Link href={`/docs/${id}`}>
           <a style={{textDecoration: 'none'}}><Title>{title}</Title></a>
         </Link>
-        {desc? <Desc>{desc}</Desc>: null}
-        {tags? <TagIndex tags={tags}/>: null}
-        {date? <Date>{date}</Date>: null}
+        <Desc desc={desc}>{desc}</Desc>
+        <TagIndex tags={tags}/>
+        <Date>{date? date: DEFAULT}</Date>
       </Row>
     </>
   );
@@ -35,6 +36,13 @@ const Title = styled.span`
   }
 `
 const Desc = styled.div`
+  visibility: ${props => props.desc? '': 'hidden'};
+`
+const Date = styled.div`
+  padding-left: 0.2rem;
+  color: gray;
+  font-size: var(--font-size-2);
+  font-weight: 600;
 `
 const ReadMore = styled.a`
   text-decoration: none;
@@ -45,10 +53,4 @@ const ReadMore = styled.a`
   &:hover {
     text-decoration: underline;
   }
-`
-const Date = styled.div`
-  padding-left: 0.2rem;
-  color: gray;
-  font-size: var(--font-size-2);
-  font-weight: 600;
 `

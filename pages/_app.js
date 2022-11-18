@@ -19,8 +19,10 @@ import 'prismjs/themes/prism.css';
 
 import './../styles/GlobalStyle.css';
 
-const TITLE = '';
-const DESC = '';
+const DEFAULT = 'a';
+// const DESC = ' ';
+// const DATE = ' ';
+// const TAGS = ' ';
 
 const collectHeadings = (node, sections = []) => {
   if (node) {
@@ -48,10 +50,10 @@ function MyApp({ Component, pageProps }) {
   const {markdoc} = pageProps
   const router = useRouter()
 
-  let title = TITLE
-  let desc = DESC
-  let date = null
-  let tags = null
+  let title = DEFAULT
+  let desc = DEFAULT
+  let date = DEFAULT
+  let tags = DEFAULT
 
   if (markdoc) {
     if (markdoc.frontmatter.title) {

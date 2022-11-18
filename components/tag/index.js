@@ -2,6 +2,7 @@ import styled from 'styled-components';
 import Tag from './tag';
 
 const TagIndex = ({tags}) => {
+  if (!tags) { tags = '...' }
   return (
     <Wrap>
       {tags && tags.split(' ').map((tag) => (

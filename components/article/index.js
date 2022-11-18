@@ -6,6 +6,7 @@ const ArticleIndex = ({ sortedItems }) => {
     <StyledUl>
       {sortedItems.map(({ id, date, title, desc, tags }, idx) => {
         // const isLast = idx === sortedItems.length - 1
+
         return (
           <div key={id}>
             <StyledLi>
