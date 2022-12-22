@@ -1,7 +1,7 @@
 ---
 title: HTML 입력폼 작성 가이드
 date: 2022-12-12
-desc: 
+desc: ''
 tags: html
 ---
 
@@ -90,8 +90,6 @@ iOS 영문자 입력의 경우 자동 대문자 (`Auto Capitalize`)나 맞춤법
 ```html
 <input type="text" inputmode="url" />
 ```
-
-![[Pasted image 20221212194137.png]]
 
 
 ## 페이지 이탈 시 알림 표시하기
