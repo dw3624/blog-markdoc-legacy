@@ -1,22 +1,31 @@
 {
-  "name": "blog",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "dev": "next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint"
-  },
-  "dependencies": {
-    "react": "^18",
-    "react-dom": "^18",
-    "next": "14.1.0"
-  },
-  "devDependencies": {
-    "typescript": "^5",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18"
-  }
+	"name": "blog",
+	"version": "0.1.0",
+	"private": true,
+	"scripts": {
+		"dev": "next dev",
+		"build": "next build",
+		"start": "next start",
+		"lint": "next lint",
+		"lint:style": "stylelint src/**/*.{css,scss,sass} src/**/*.module.css",
+		"lint:style:fix": "stylelint --fix src/**/*.{css,scss,sass} src/**/*.module.css",
+		"biome:check": "biome check --apply .",
+		"biome:check:fix": "biome check --apply-unsafe .",
+		"format": "npm run biome:check:fix && npm run lint:style:fix"
+	},
+	"dependencies": {
+		"next": "14.1.0",
+		"react": "^18",
+		"react-dom": "^18"
+	},
+	"devDependencies": {
+		"@types/node": "^20",
+		"@types/react": "^18",
+		"@types/react-dom": "^18",
+		"stylelint": "^16.2.0",
+		"stylelint-config-css-modules": "^4.4.0",
+		"stylelint-config-recess-order": "^4.4.0",
+		"stylelint-config-standard": "^36.0.0",
+		"typescript": "^5"
+	}
 }
