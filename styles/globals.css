@@ -1,0 +1,18 @@
+@import url("./css-reset.css");
+@import url("./global-variables.css");
+@import url("./global-styles.css");
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: auto;
+  overflow-x: hidden;
+  color: hsl(var(--foreground));
+  background-color: hsl(var(--background));
+}
