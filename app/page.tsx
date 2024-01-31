@@ -1,6 +1,17 @@
+import { getAllPosts } from "@/lib/post";
 import Image from "next/image";
+import Link from "next/link";
 import styles from "./page.module.css";
 
 export default function Home() {
-	return <main className={styles.main}></main>;
+	const posts = getAllPosts();
+	return (
+		<div>
+			{posts.map((post, i) => (
+				<Link key={i} href={`${post.slug}`}>
+					{post.slug}
+				</Link>
+			))}
+		</div>
+	);
 }

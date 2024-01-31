@@ -1,0 +1,247 @@
+h1 {
+  margin-top: 0.5rem;
+  font-size: var(--text-4xl);
+  font-weight: 800;
+  line-height: 2.5rem;
+  letter-spacing: -0.025em;
+  scroll-margin: 5rem;
+}
+
+h2 {
+  padding-bottom: 0.25rem;
+  margin-top: 2.5rem;
+  font-size: var(--text-3xl);
+  font-weight: 600;
+  line-height: 2.25rem;
+  letter-spacing: -0.025em;
+  border-bottom: 1px solid hsl(var(--border));
+  scroll-margin: 5rem;
+
+}
+
+h2:first-child {
+  margin-top: 0;
+}
+
+h3 {
+  margin-top: 2rem;
+  font-size: var(--text-2xl);
+  font-weight: 600;
+  line-height: 2rem;
+  letter-spacing: -0.025em;
+  scroll-margin: 5rem;
+}
+
+h4 {
+  margin-top: 2rem;
+  font-size: var(--text-xl);
+  font-weight: 600;
+  line-height: 1.75rem;
+  letter-spacing: -0.025em;
+  scroll-margin: 5rem;
+}
+
+h5 {
+  margin-top: 2rem;
+  scroll-margin: 5rem;
+  font-size: var(--text-lg);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+h6 {
+  margin-top: 2rem;
+  scroll-margin: 5rem;
+  font-size: var(--text-md);
+  font-weight: 600;
+  letter-spacing: -0.025em;
+}
+
+a {
+  font-weight: 500;
+  color: hsl(var(--primary));
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+a:hover {
+  color: hsl(var(--primary) / 80%);
+}
+
+
+p {
+  line-height: 1.75rem;
+}
+
+p:not(:first-child) {
+  margin-top: 1.5rem;
+}
+
+ul {
+  margin: 1rem 0 1.5rem 1.5rem;
+  list-style: disc;
+}
+
+ol {
+  margin: 1rem 0 1.5rem 1.5rem;
+  list-style: decimal;
+}
+
+li {
+  margin-top: 0.5rem;
+
+}
+
+li::marker {
+  color: hsl(var(--primary));
+}
+
+blockquote {
+  padding-left: 1.5rem;
+  margin-top: 1.5rem;
+  font-style: italic;
+  border-left: 4px solid hsl(var(--primary));
+}
+
+blockquote>* {
+  color: hsl(var(--muted-foreground));
+}
+
+img {
+  border: 1px solid hsl(var(--border));
+  border-radius: calc(var(--radius) - 2px);
+}
+
+hr {
+  margin: 2rem 0;
+}
+
+@media screen and (768px <= width) {
+  hr { margin: 4rem 0; }
+}
+
+table {
+  width: 100%;
+  margin: 1.5rem 0;
+  overflow-y: auto;
+  font-size: var(--text-sm);
+  text-indent: 0;
+  border-collapse: collapse;
+  border-color: inherit;
+}
+
+tr {
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid hsl(var(--border));
+
+}
+
+tr:nth-child(even) {
+  background-color: hsl(var(--muted));
+}
+
+th {
+  padding: 0.5rem 1rem;
+  font-weight: 700;
+  text-align: left;
+  border: 1px solid hsl(var(--border));
+}
+
+th[align="center"] {
+  text-align: center;
+}
+
+th[align="right"] {
+  text-align: right;
+}
+
+td {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  border: 1px solid hsl(var(--border));
+}
+
+td[align="center"] {
+  text-align: center;
+}
+
+td[align="right"] {
+  text-align: right;
+}
+
+pre {
+  padding: 1rem 0;
+  margin: 1.5rem 0 1rem;
+  overflow-x: auto;
+  background-color: #000;
+  border: 1px solid hsl(var(--border));
+  border-radius: var(--radius);
+}
+
+code {
+  position: relative;
+  padding: 0.2rem 0.3rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.25rem;
+  background-color: hsl(var(--primary) / 30%);
+  border-radius: 0.25rem;
+
+  /* border: 1px solid hsl(var(--border)); */
+}
+
+[data-rehype-pretty-code-figure] code {
+  display: grid;
+  min-width: 100%;
+  padding: 0;
+  font-size: var(--text-sm);
+  line-height: 1.25rem;
+
+  /* color: #fff; */
+  word-break: keep-all;
+  counter-reset: line;
+  background-color: transparent;
+  border: transparent;
+  border-radius: 0;
+  box-decoration-break: clone;
+}
+
+[data-rehype-pretty-code-figure] [data-line] {
+  padding: 0.25rem 1rem;
+}
+
+[data-rehype-pretty-code-figure] [data-line-numbers] > [data-line]::before {
+  display: inline-block;
+  width: 1rem;
+  margin-right: 1rem;
+  color: gray;
+  text-align: right;
+  content: counter(line);
+  counter-increment: line;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] {
+  background-color: hsl(var(--muted)/ 10%);
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-line] [data-line] {
+  position: relative;
+}
+
+[data-rehype-pretty-code-figure] [data-highlighted-chars] {
+  padding: 0.25rem;
+  background-color: hsl(var(--muted)/ 15%);
+  border-radius: calc(var(--radius) - 2px);
+}
+
+[data-rehype-pretty-code-title] {
+  padding: 0.5rem 1rem;
+  margin-top: 1rem;
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+[data-rehype-pretty-code-title] + pre {
+  margin-top: 0;
+}

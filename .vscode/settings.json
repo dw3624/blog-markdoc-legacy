@@ -6,10 +6,10 @@
 	"editor.formatOnSave": true,
 	"editor.formatOnPaste": true,
 	"editor.codeActionsOnSave": {
-		"source.addMissingImports": true,
-		"quickfix.biome": true,
-		"source.organizeImports.biome": true,
-		"source.fixAll.stylelint": true
+		"source.addMissingImports": "explicit",
+		"quickfix.biome": "explicit",
+		"source.organizeImports.biome": "explicit",
+		"source.fixAll.stylelint": "explicit"
 	},
 	"javascript.validate.enable": false,
 	"typescript.validate.enable": false,
