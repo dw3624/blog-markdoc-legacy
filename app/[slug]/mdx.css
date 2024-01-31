@@ -240,6 +240,7 @@ code {
   margin-top: 1rem;
   font-size: var(--text-sm);
   font-weight: 500;
+  background-color: hsl(var(--muted));
 }
 
 [data-rehype-pretty-code-title] + pre {

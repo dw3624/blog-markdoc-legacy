@@ -28,11 +28,23 @@ const PostSlugPage = async ({ params }) => {
 
 	const post = await getPost(params.slug);
 	const { slug, frontMatter, body } = post;
-
+	console.log(frontMatter);
 	return (
-		<div>
-			<MDXRemote source={body} options={MDXOptions} />
-		</div>
+		<article>
+			<header>
+				<time>{frontMatter.date}</time>
+				<h1>{frontMatter.title}</h1>
+				<p>{frontMatter.p}</p>
+				<div>
+					{frontMatter.tags.map((tag, i) => (
+						<div key={i}>{tag}</div>
+					))}
+				</div>
+			</header>
+			<div>
+				<MDXRemote source={body} options={MDXOptions} />
+			</div>
+		</article>
 	);
 };
 

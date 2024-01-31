@@ -6,12 +6,12 @@ import styles from "./page.module.css";
 export default function Home() {
 	const posts = getAllPosts();
 	return (
-		<div>
+		<section>
 			{posts.map((post, i) => (
 				<Link key={i} href={`${post.slug}`}>
 					{post.slug}
 				</Link>
 			))}
-		</div>
+		</section>
 	);
 }
