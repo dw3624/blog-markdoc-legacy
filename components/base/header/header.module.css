@@ -29,7 +29,9 @@
 }
 
 .title {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
   margin-left: 0.5rem;
   font-weight: 700;
 }
@@ -37,6 +39,15 @@
 .menu {
   display: flex;
   gap: 1.5rem;
+}
+
+.nav-menu {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 1.25rem;
+  color: hsl(var(--foreground) / 60%);
+  text-decoration: inherit;
 }
 
 .toggle {
@@ -51,4 +62,10 @@
   background-color: transparent;
   border-radius: calc(var(--radius) - 2px);
   transition: 0.15s ease-in-out;
+}
+
+.toggle:hover {
+  color: hsl(var(--accent-foreground));
+  background-color: hsl(var(--accent));
+
 }

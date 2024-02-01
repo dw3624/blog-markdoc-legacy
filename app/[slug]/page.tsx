@@ -1,51 +1,80 @@
-import fs from "fs";
-import path from "path";
-import { MDXRemote } from "next-mdx-remote/rsc";
-import React from "react";
+import fs from 'fs'
+import path from 'path'
+import React from 'react'
 
-import "./mdx.css";
+import { Badge } from '@/components/ui/badge/badge'
+import { getAllPosts, getPost } from '@/lib/post'
+import { MDXOptions } from '@/mdx.config'
+import { MDXRemote } from 'next-mdx-remote/rsc'
 
-import { getAllPosts, getPost } from "@/lib/post";
-import { MDXOptions } from "@/mdx.config";
+import Link from 'next/link'
+import { MDXComponents } from './_components/mdx-components'
+import './mdx.css'
+import styles from './page.module.css'
 
 export const generateStaticParams = async () => {
-	const postsDirectory = path.join(process.cwd(), "posts");
-	const filenames = fs.readdirSync(postsDirectory);
+	const postsDirectory = path.join(process.cwd(), 'posts')
+	const filenames = fs.readdirSync(postsDirectory)
 	return filenames.map((filename) => ({
-		slug: filename.replace(/\.md$/, ""),
-	}));
-};
+		slug: filename.replace(/\.md$/, ''),
+	}))
+}
 
 const PostSlugPage = async ({ params }) => {
-	const posts = await getAllPosts();
-	const currentPost = posts.find((post) => post.slug === params.slug);
-	if (!currentPost) return notFound();
+	const posts = await getAllPosts()
+	const currentPost = posts.find((post) => post.slug === params.slug)
+	if (!currentPost) return console.log('not found')
 
-	const currentIndex = posts.indexOf(currentPost);
-	const prevPostSlug = currentIndex > 0 ? posts[currentIndex - 1] : null;
-	const nextPostSlut =
-		currentIndex < posts.length ? posts[currentIndex] + 1 : null;
+	const currentIndex = posts.indexOf(currentPost)
+	const prevPostSlug = currentIndex > 0 ? posts[currentIndex - 1] : null
+	const nextPostSlug =
+		currentIndex < posts.length ? posts[currentIndex + 1] : null
 
-	const post = await getPost(params.slug);
-	const { slug, frontMatter, body } = post;
-	console.log(frontMatter);
+	console.log(nextPostSlug)
+
+	const post = await getPost(params.slug)
+	const { slug, frontMatter, body } = post
+
 	return (
 		<article>
-			<header>
-				<time>{frontMatter.date}</time>
-				<h1>{frontMatter.title}</h1>
-				<p>{frontMatter.p}</p>
-				<div>
+			<header className={styles.header}>
+				<h1 className={styles.title}>{frontMatter.title}</h1>
+				<time className={styles.time}>{frontMatter.date}</time>
+				<div className={styles.tags}>
 					{frontMatter.tags.map((tag, i) => (
-						<div key={i}>{tag}</div>
+						<Badge key={i} href={tag}>
+							{tag}
+						</Badge>
 					))}
 				</div>
 			</header>
+			<div className={styles.prose}>
+				<MDXRemote
+					source={body}
+					options={MDXOptions}
+					components={MDXComponents}
+				/>
+			</div>
 			<div>
-				<MDXRemote source={body} options={MDXOptions} />
+				<Link
+					href={prevPostSlug?.slug || '#'}
+					aria-disabled={!prevPostSlug}
+					className={!prevPostSlug && 'disabled'}
+				>
+					<div>이전</div>
+					<div>{prevPostSlug?.frontMatter.title}</div>
+				</Link>
+				<Link
+					href={nextPostSlug?.slug || '#'}
+					aria-disabled={!nextPostSlug}
+					className={!nextPostSlug && 'disabled'}
+				>
+					<div>다음</div>
+					<div>{nextPostSlug?.frontMatter.title}</div>
+				</Link>
 			</div>
 		</article>
-	);
-};
+	)
+}
 
-export default PostSlugPage;
+export default PostSlugPage

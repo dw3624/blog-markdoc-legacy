@@ -1,14 +1,15 @@
-"use client";
+'use client'
 
-import { MoonStar } from "lucide-react";
-import Link from "next/link";
-import React from "react";
-import styles from "./header.module.css";
+import { MoonStar } from 'lucide-react'
+
+import Link from 'next/link'
+import React from 'react'
+import styles from './header.module.css'
 
 const Header = () => {
 	const toggle = () => {
-		document.documentElement.classList.toggle("dark");
-	};
+		document.documentElement.classList.toggle('dark')
+	}
 
 	return (
 		<header className={styles.header}>
@@ -19,18 +20,24 @@ const Header = () => {
 						<span className={styles.title}>title</span>
 					</Link>
 					<nav className={styles.menu}>
-						<Link href="/tags">tags</Link>
+						<Link href="/tags" className={styles['nav-menu']}>
+							tags
+						</Link>
 					</nav>
 				</div>
 
 				<nav>
-					<div>
+					<button
+						type="button"
+						onClick={() => toggle()}
+						className={styles.toggle}
+					>
 						<MoonStar size={16} />
-					</div>
+					</button>
 				</nav>
 			</div>
 		</header>
-	);
-};
+	)
+}
 
-export default Header;
+export default Header

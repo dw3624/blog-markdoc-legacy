@@ -1,0 +1,28 @@
+.header {
+  padding-bottom: 1.5rem;
+  text-align:center;
+}
+
+.title {
+  display: inline-block;
+}
+
+.time {
+  display: block;
+  margin-top: 1.5rem;
+  font-size: var(--text-sm);
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+}
+
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+
+.prose {
+  padding: 2rem 0;
+}
