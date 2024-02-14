@@ -4,7 +4,7 @@ description: Second post.
 date: '2023-4-16'
 tags:
   - SvelteKit
-  - Svelte
+  - Markdown
 published: true
 ---
 
