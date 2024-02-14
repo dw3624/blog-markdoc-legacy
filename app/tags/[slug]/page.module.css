@@ -1,0 +1,11 @@
+.header {
+  padding-bottom: 1rem;
+
+  /* text-align:center; */
+}
+
+.content {
+  display: grid;
+  gap: 2.5rem;
+  padding: 2rem 0;
+}
