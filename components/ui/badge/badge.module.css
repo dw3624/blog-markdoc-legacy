@@ -19,6 +19,12 @@
     text-decoration-color, fill, stroke;
 }
 
+.lg {
+  padding: 0.45em 0.75em;
+  font-size: var(--text-md);
+  border-radius: var(--radius);
+}
+
 .badge:hover {
-  background-color: hsl(var(--primary) / 20%);
+  background-color: hsl(var(--primary) / 80%);
 }

@@ -31,7 +31,9 @@
 }
 
 .time {
+  font-family: "Ubuntu Mono", monospace;
   font-size: var(--text-sm);
+  font-weight: 700;
   line-height: normal;
   color: hsl(var(--muted-foreground));
 }

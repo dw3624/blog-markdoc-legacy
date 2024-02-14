@@ -1,10 +1,13 @@
 import { Badge } from '@/components/ui/badge/badge'
+import { formatDate } from '@/lib/format-date'
+import Link from 'next/link'
 import React from 'react'
 
-import Link from 'next/link'
 import styles from './post-card.module.css'
 
 const PostCard = ({ post }) => {
+	const date = formatDate(post.frontMatter.date)
+
 	return (
 		<article className={styles.container}>
 			<h3 className={styles.title}>
@@ -13,13 +16,13 @@ const PostCard = ({ post }) => {
 			<p className={styles.description}>{post.frontMatter.description || ''}</p>
 			<div className={styles.content}>
 				<div className={styles.tags}>
-					{post.frontMatter.tags.map((tag, i) => (
+					{post.frontMatter.tags.map((tag: string, i: number) => (
 						<Badge key={i} href={`/tags/${tag}`}>
 							{tag}
 						</Badge>
 					))}
 				</div>
-				<time className={styles.time}>{post.frontMatter.date}</time>
+				<time className={styles.time}>{date}</time>
 			</div>
 		</article>
 	)
