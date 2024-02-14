@@ -1,9 +1,12 @@
 import Footer from '@/components/base/footer/footer'
 import Header from '@/components/base/header/header'
-import '@/styles/globals.css'
 import type { Metadata } from 'next'
 import localFont from 'next/font/local'
 import React from 'react'
+
+import '@/styles/globals.css'
+import '@fontsource/ubuntu-mono/400.css'
+import '@fontsource/ubuntu-mono/700.css'
 import styles from './layout.module.css'
 
 const pretendard = localFont({
