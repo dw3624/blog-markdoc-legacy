@@ -100,7 +100,7 @@ blockquote {
   padding-left: 1.5rem;
   margin-top: 1.5rem;
   font-style: italic;
-  border-left: 4px solid hsl(var(--primary));
+  border-left: 2px solid hsl(var(--primary));
 }
 
 blockquote>* {
@@ -187,6 +187,7 @@ code {
   position: relative;
   padding: 0.2rem 0.3rem;
   font-family: var(--font-mono);
+  font-family: 'Ubuntu Mono', monospace;
   font-size: var(--text-sm);
   line-height: 1.25rem;
   background-color: hsl(var(--primary) / 30%);

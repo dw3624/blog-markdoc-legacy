@@ -7,8 +7,10 @@ import { getAllPosts, getPost } from '@/lib/post'
 import { MDXOptions } from '@/mdx.config'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
+import { formatDate } from '@/lib/format-date'
 import Link from 'next/link'
 import { MDXComponents } from './_components/mdx-components'
+import { NavButton } from './_components/nav-button/nav-button'
 import './mdx.css'
 import styles from './page.module.css'
 
@@ -35,11 +37,13 @@ const PostSlugPage = async ({ params }) => {
 	const post = await getPost(params.slug)
 	const { slug, frontMatter, body } = post
 
+	const date = formatDate(frontMatter.date)
+
 	return (
 		<article>
 			<header className={styles.header}>
 				<h1 className={styles.title}>{frontMatter.title}</h1>
-				<time className={styles.time}>{frontMatter.date}</time>
+				<time className={styles.time}>{date}</time>
 				<div className={styles.tags}>
 					{frontMatter.tags.map((tag, i) => (
 						<Badge key={i} href={tag}>
@@ -55,24 +59,18 @@ const PostSlugPage = async ({ params }) => {
 					components={MDXComponents}
 				/>
 			</div>
-			<div>
-				<Link
-					href={prevPostSlug?.slug || '#'}
-					aria-disabled={!prevPostSlug}
-					className={!prevPostSlug && 'disabled'}
-				>
-					<div>이전</div>
-					<div>{prevPostSlug?.frontMatter.title}</div>
-				</Link>
-				<Link
-					href={nextPostSlug?.slug || '#'}
-					aria-disabled={!nextPostSlug}
-					className={!nextPostSlug && 'disabled'}
-				>
-					<div>다음</div>
-					<div>{nextPostSlug?.frontMatter.title}</div>
-				</Link>
-			</div>
+			<nav className={styles.nav}>
+				<NavButton
+					variant="prev"
+					slug={prevPostSlug?.slug}
+					text={prevPostSlug?.frontMatter.title}
+				/>
+				<NavButton
+					variant="next"
+					slug={nextPostSlug?.slug}
+					text={nextPostSlug?.frontMatter.title}
+				/>
+			</nav>
 		</article>
 	)
 }

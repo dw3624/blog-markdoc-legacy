@@ -26,3 +26,16 @@
 .prose {
   padding: 2rem 0;
 }
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin: 1.5rem auto 0;
+}
+
+@media screen and (768px <= width) {
+  .nav {
+    flex-direction: row;
+  }
+}

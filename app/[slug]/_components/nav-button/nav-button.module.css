@@ -1,0 +1,35 @@
+.container {
+  display: flex;
+  flex: 1;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+  padding: 1rem;
+  font-size: var(--text-sm);
+  line-height: 1.25rem;
+  color: hsl(var(--muted-foreground));
+  text-decoration: none;
+  border: 1px solid hsl(var(--border));
+}
+
+.container:hover {
+  color: hsl(var(--primary));
+  border-color: hsl(var(--primary) / 20%);
+}
+
+.content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+}
+
+.variant {
+  font-size: var(--text-xs);
+  line-height: 1rem;
+  color: hsl(var(--foreground));
+}
+
+.text {
+  overflow: hidden;
+}
+
