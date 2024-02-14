@@ -12,7 +12,7 @@
 		"source.fixAll.stylelint": "explicit"
 	},
 	"javascript.validate.enable": false,
-	"typescript.validate.enable": false,
+	"typescript.validate.enable": true,
 
 	"stylelint.validate": ["css", "scss"],
 	"css.validate": false,
